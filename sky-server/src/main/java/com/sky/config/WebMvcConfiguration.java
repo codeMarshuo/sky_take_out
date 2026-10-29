@@ -39,16 +39,18 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
 
     /**
      * 通过knife4j生成接口文档
+     * @Bean就是说明是由spring创建并管理的类
+     * 先创建apiinfo保存一系列的信息
      * @return
      */
     @Bean
     public Docket docket() {
         log.info("准备生成接口文档");
-        ApiInfo apiInfo = new ApiInfoBuilder()
+        ApiInfo apiInfo = new ApiInfoBuilder()   //创建构建器对象，链式构造
                 .title("苍穹外卖项目接口文档")
                 .version("2.0")
                 .description("苍穹外卖项目接口文档")
-                .build();
+                .build();     //构建最终对象
         Docket docket = new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo)
                 .select()
