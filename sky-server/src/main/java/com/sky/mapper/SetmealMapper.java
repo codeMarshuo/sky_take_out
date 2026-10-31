@@ -83,4 +83,8 @@ public interface SetmealMapper {
      * @return
      */
     Integer countByMap(Map map);
+
+    void deleteByIds(List<Long> ids);
+
+
 }

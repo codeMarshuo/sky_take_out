@@ -57,4 +57,6 @@ public interface DishMapper {
      * @return
      */
     Integer countByMap(Map map);
+    @Delete("delete from dish where id=#{id}")
+    void deleteById(Long id);
 }
