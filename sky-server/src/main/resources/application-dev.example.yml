@@ -1,0 +1,14 @@
+# Copy to application-dev.yml for local development. Never commit real credentials.
+sky:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    host: ${DB_HOST:localhost}
+    port: ${DB_PORT:3306}
+    database: ${DB_NAME:sky_take_out}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD}
+  alioss:
+    endpoint: ${ALIOSS_ENDPOINT}
+    access-key-id: ${ALIOSS_ACCESS_KEY_ID}
+    access-key-secret: ${ALIOSS_ACCESS_KEY_SECRET}
+    bucket-name: ${ALIOSS_BUCKET_NAME}

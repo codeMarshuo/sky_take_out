@@ -5,3 +5,7 @@
 *Test.java
 **/test/
 application-dev.yml
+.env
+.env.*
+!.env.example
+application-local.yml
