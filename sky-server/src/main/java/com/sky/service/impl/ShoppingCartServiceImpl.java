@@ -84,4 +84,9 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         Long id = BaseContext.getCurrentId();
         shoppingCartMapper.deleteByUserId(id);
     }
+
+    @Override
+    public void subNumber(ShoppingCartDTO shoppingCartDTO) {
+
+    }
 }
