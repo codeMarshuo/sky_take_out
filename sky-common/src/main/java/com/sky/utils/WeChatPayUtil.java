@@ -23,6 +23,7 @@ import java.io.FileNotFoundException;
 import java.math.BigDecimal;
 import java.security.PrivateKey;
 import java.security.Signature;
+import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -71,7 +72,25 @@ public class WeChatPayUtil {
             return null;
         }
     }
+    /**
+     * 本地测试：解析证书，不检查有效期
+     * 不用于真实微信支付
+     */
+    public void testCertificate() throws Exception {
 
+        CertificateFactory cf =
+                CertificateFactory.getInstance("X.509");
+
+        try (FileInputStream inputStream = new FileInputStream(
+                weChatProperties.getWeChatPayCertFilePath())) {
+
+            X509Certificate certificate =
+                    (X509Certificate) cf.generateCertificate(inputStream);
+
+            System.out.println("证书加载成功");
+            System.out.println("证书到期时间：" + certificate.getNotAfter());
+        }
+    }
     /**
      * 发送post方式请求
      *
