@@ -28,4 +28,12 @@ public interface OrderMapper {
     void update(Orders orders);
 
     Page<Orders> pageQuery(OrdersPageQueryDTO ordersPageQueryDTO);
+
+    /**
+     * 查询id
+     * @param id
+     * @return
+     */
+    @Select("select * from orders where id=#{id}")
+    Orders geById(Long id);
 }
