@@ -29,6 +29,8 @@ public interface UserMapper {
     Integer countByMap(@Param("begin")LocalDateTime begin,
                        @Param("end") LocalDateTime end);
 
+    Integer countByMap(Map map);
+
     /**
      * 根据条件查询用户数量
      * @param map
